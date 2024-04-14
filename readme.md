@@ -1,7 +1,6 @@
 # Tax Calculator
-Deployment Link - https://deluxe-marzipan-0d3332.netlify.app/
-GitHub Link - https://github.com/nikhil174/tax-calculator-assignment
-Introduction Video - 
+Deployment Link - https://deluxe-marzipan-0d3332.netlify.app/  
+GitHub Link - https://github.com/nikhil174/tax-calculator-assignment  
 
 #### Test Cases
 ##### 1. Show Tooltip for the ? button
