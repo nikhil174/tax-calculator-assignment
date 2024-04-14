@@ -1,0 +1,111 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Tax Calculator</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form_container">
+            <form action="submit" id="income_form">
+                <div class="form_group">
+                    <label id="annual_income" for="annual_income">Enter Gross Annual Income
+                        <div>
+                            <div class="info_btn" id="annual_income_info_btn">?</div>
+                            <div class="info_tooltip" id="annual_income_tooltip">Gross annual income in a year before
+                                any deductions</div>
+                        </div>
+                    </label>
+                    <div class="input_container">
+                        <input type="string" id="annual_income" name="annual_income"
+                            placeholder="Enter gross annual income" required>
+                        <div class="error_container">
+                            <div class="error_message" id="annual_income_error">!</div>
+                            <div class="tooltip" id="annual_income_error_tooltip">Please enter numbers only</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form_group">
+                    <label id="extra_income" for="extra_income">Enter extra income
+                        <div>
+                            <div class="info_btn" id="extra_income_info_btn">?</div>
+                            <div class="info_tooltip" id="extra_income_tooltip"> extra income</div>
+                        </div>
+                    </label>
+                    <div class="input_container">
+                        <input type="string" id="extra_income" name="extra_income" placeholder="Enter extra income"
+                            required>
+                        <div class="error_container">
+                            <div class="error_message" id="extra_income_error">!</div>
+                            <div class="tooltip" id="extra_income_error_tooltip">Please enter numbers only
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form_group">
+                    <label id="age_group" for="age">Enter age group
+                        <div>
+                            <div class="info_btn" id="age_group_info_btn">?</div>
+                            <div class="info_tooltip" id="age_group_tooltip">age group</div>
+                        </div>
+                    </label>
+
+                    <div class="input_container">
+                        <select class="form_select" id="age" name="age">
+                            <option value="" selected disabled></option>
+                            <option value="40">
+                                <40 </option>
+                            <option value="31-50"> > 40 and < 60</option>
+                            <option value="51-65"> >= 60 </option>
+                        </select>
+                        <div class="error_container">
+                            <div class="error_message" id="age_error">!</div>
+                            <div class="tooltip" id="age_error_tooltip">Please select age
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form_group">
+                    <label id="deduction" for="deduction">Enter Total Applicable Deductions
+                        <div>
+                            <div class="info_btn" id="deduction_info_btn">?</div>
+                            <div class="info_tooltip" id="deduction_tooltip">deductions</div>
+                        </div>
+                    </label>
+                    <div class="input_container">
+                        <input type="string" id="deduction" name="deduction" placeholder="Enter deductions" required>
+                        <div class="error_container">
+                            <div class="error_message" id="deduction_error">!</div>
+                            <div class="tooltip" id="deduction_error_tooltip">Please enter numbers only</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form_group">
+                    <button class="btn">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Modal structure -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <h2>Your overall income will be</h2>
+            <h3>12,00,000</h3>
+            <p>after tax deductions</p>
+        </div>
+        <div class="close">
+            <button class="close_btn">Close</button>
+        </div>
+    </div>
+
+    <!-- Backdrop overlay -->
+    <div id="modalBackdrop" class="modal-backdrop"></div>
+    <script src="./script.js" defer>
+    </script>
+</body>
+
+</html>
