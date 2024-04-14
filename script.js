@@ -18,6 +18,41 @@ function addErrorTooltip(id) {
     });
 }
 
+function calculateOverallIncome(formData) {
+    const taxedIncome = 800000;
+    const income = formData['annual_income'] + formData['extra_income'] + formData['deduction'];
+    let overallIncome;
+
+    if (income <= taxedIncome) {
+        overallIncome = income;
+    } else {
+        if (formData['age'] < 40) {
+            overallIncome = income - ((income - taxedIncome) * 0.3);
+        } else if (formData['age'] >= 40 && formData['age'] < 60) {
+            overallIncome = income - (( income - taxedIncome) * 0.4);
+        } else {
+            overallIncome = income - (( income - taxedIncome) * 0.1);
+        }
+    }
+    return overallIncome;
+}
+
+function formatNumber(number) {
+    let numStr = String(number);
+    let parts = [];
+    if (numStr.length > 3) {
+        parts.unshift(numStr.slice(-3));
+        numStr = numStr.slice(0, -3); 
+    }
+
+    while (numStr.length > 2) {
+        parts.unshift(numStr.slice(-2));
+        numStr = numStr.slice(0, -2);
+    } 
+    parts.unshift(numStr);
+    return parts.join(',');
+}
+
 for (let i = 0; i < inputs.length; i++) {
     const showErrorBtn = document.querySelector(`#${inputs[i].id}_error`);
     inputs[i].addEventListener('keyup', () => {
@@ -61,8 +96,10 @@ form.addEventListener('submit', function(event) {
         formData[inputs[i].id] = Number(inputs[i].value);
     }
 
-    console.log(formData);
-
+    const overallIncome = calculateOverallIncome(formData);
+    const overallIncomeInput = document.querySelector('#overall_income');
+    overallIncomeInput.innerText = formatNumber(overallIncome);
+    
     modal.style.display = 'flex';
     modalBackdrop.style.display = 'block';
 });
